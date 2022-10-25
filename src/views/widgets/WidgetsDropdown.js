@@ -139,6 +139,25 @@ const WidgetsDropdown = () => {
           </CDropdown>
         </CWidgetDropdown>
       </CCol>
+      <CCol sm="6" lg="3">
+        <CWidgetDropdown
+          color="gradient-danger"
+          header="9.823"
+          text="Members online"
+          style={{height:"150px"}}
+          // footerSlot={
+          //   <ChartBarSimple
+          //     // className="mt-3 mx-3"
+          //     style={{height: '70px'}}
+          //     // backgroundColor="rgb(250, 152, 152)"
+          //     // label="Members"
+          //     // labels="months"
+          //   />
+          // }
+        >
+         
+        </CWidgetDropdown>
+      </CCol>
     </CRow>
   )
 }

@@ -11,13 +11,20 @@ import { icons } from './assets/icons'
 
 import { Provider } from 'react-redux'
 import store from './store'
+import { CookiesProvider } from "react-cookie";
+
 
 React.icons = icons
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* if we put cookiesprovider instead provider then it will give error as
+Error: could not find react-redux context value; please ensure the component is wrapped in a <Provider>
+    */}
+    {/* <CookiesProvider> */}
     <App/>
-  </Provider>,
+    {/* </CookiesProvider>, */}
+   </Provider>,
   document.getElementById('root')
 );
 
