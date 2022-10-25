@@ -160,13 +160,13 @@ const MakePaymentAdd = (props) => {
             // });
             //console.log(image);  
            });
-           reader.readAsDataURL(e.target.files[0]);
+           reader.readAsDataURL(e.target.files[0]);   
          }
     };
 
     const UploadImage=async(cover_image,image_name)=>{
         
-        console.log(image_name);
+        console.log(image_name);//sdf
         console.log("UPload image api");
         var list={};
         list["image_base64_string"]=cover_image;
