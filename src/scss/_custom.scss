@@ -1,4 +1,5 @@
 // Here you can add other styles
+<<<<<<< HEAD
 .blue {
     // color:#00BFFF;
     color: #38ACEC;
@@ -44,21 +45,141 @@
     border: 1px solid #3b3f4b;
     position: relative;
     color: #fff;
+=======
+.blue{
+    //  color:#00BFFF;
+    color:#38ACEC;
+
+   // background-color:#00bfff;
+
+}
+.faipending{
+    //  color:#00BFFF;
+    background-color:#ad237f;
+}
+
+.bgblue{
+    //  color:#00BFFF;
+   // color:#38ACEC;
+
+    background-color: #38ACEC;
+
+}
+
+.pink{
+    //  color:#00BFFF;
+   // color:#38ACEC;
+
+    background-color: #ff0066
+    ;
+
+}
+.purple{
+    // color:#00BFFF;
+    background-color:#8000ff ;
+
+}
+.purplec{
+    // color:#00BFFF;
+   color:#8000ff ;
+
+}
+.orgclr{
+    // color:#00BFFF;
+    background-color:#e64a24e3 ;
+
+}
+
+.white{
+    background-color:#ffffffe3 ;
+    color: white;
+
+}
+
+.orgclr1{
+    // color:#00BFFF;
+    background-color:#f7c4b8e3 ;
+
+}
+
+.lightpurple{
+    // color:#00BFFF;
+    background-color:#bf00ff ;
+
+}
+.lightgreen{
+    // color:#00BFFF;
+    background-color:#00cc99 ;
+
+}
+.darkpink{
+    // color:#00BFFF;
+    background-color:#b300b3 ;
+
+}
+.yellow{
+    // color:#00BFFF;
+    background-color:#b38600
+    ;
+
+}
+.marron{
+    // color:#00BFFF;
+    background-color:#990000
+
+    ;
+
+}
+.bggreen{
+    background-color:#2eb85c;
+}
+.bgred{
+    background-color:rgb(199, 7, 7);
+}
+.bgyellow{
+    background-color:#f8a611;
+}
+.red{
+    color:red;
+}
+
+.bgred1{
+    background-color: #c70404;
+}
+.inputborderradius{
+    border-radius: 15px;
+}
+//custom image upload button
+.div{
+    padding: 5px 10px;
+    background: #861F41;
+    border:1px solid #861F41;
+    position: relative;
+    color:#fff;
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     border-radius: 2px;
     text-align: center;
     float: left;
     cursor: pointer;
     // margin-top: 20px;
+<<<<<<< HEAD
     width: 100%;
 
 }
 
 .hide-file {
+=======
+    width:100%;
+
+}
+.hide-file{
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     position: absolute;
     z-index: 1000;
     opacity: 0;
     cursor: pointer;
     right: 0;
+<<<<<<< HEAD
     top: 0;
     height: 100%;
     font-size: 24px;
@@ -66,16 +187,30 @@
 }
 
 .cyan {
+=======
+    top:0;
+    height: 100%;
+    font-size:24px;
+    width: 100%;
+}
+
+.cyan{
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     // color: cyan;
     color: #861F41;
 
 }
+<<<<<<< HEAD
 
 .cyanfont {
+=======
+.cyanfont{
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     // color: cyan;
     color: #861F41;
 
 }
+<<<<<<< HEAD
 
 .bgcyan {
     background-color: #861F41;
@@ -89,10 +224,39 @@
 
 .whitewithbggreencolor {
     color: white;
+=======
+.bgcyan{
+    background-color: #861F41;
+}
+
+  .fill{
+    background-color: #3b435a;
+    width: auto;
+    height: auto;
+  }
+
+  .bgblue1{
+    background-color: #0842f1;
+  }
+
+  .bgclr{
+    border-color: #000000;
+  }
+
+
+.whitewithbgcolor{
+    color:white;
+    background-color: #861F41;
+
+}
+.whitewithbggreencolor{
+    color:white;
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     background-color: #90ee90;
 
 }
 
+<<<<<<< HEAD
 .white {
     color: white;
 }
@@ -103,10 +267,62 @@
 
 .my-table {
     border: 1px solid #3b3f4b !important;
+=======
+.whitewithbluecolor{
+    color:white;
+    background-color:#37BEFF;
+
+}
+.whitewithredcolor{
+    color:white;
+    background-color: red;
+
+}
+.whitewithorangecolor{
+    color:white;
+    background-color: orange;
+
+}
+table.rs-table-bordered{
+    border:1px solid #c00000;
+    margin-top:20px;
+  }
+
+
+table.rs-table-bordered >  tr > th{
+    border:1px solid black;
+}
+table.rs-table-bordered > tbody > tr > td{
+    border:1px solid black;
+}
+
+
+
+// .ck-editor__editable {
+//     min-height: 100px;
+// }
+   
+
+
+
+// .table-bordered td, .table-bordered th{
+//     border-color: black !important;
+// }
+
+.white{
+    color: white;
+}
+.width100{
+    width:100%;
+}
+.my-table{
+    border: 1px solid #861F41 !important;
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     //border-top: 1px solid #861F41;
     // border-collapse: collapse;
 }
 
+<<<<<<< HEAD
 .my-table-border {
     display: table;
     width: 100%;
@@ -186,19 +402,111 @@
 
 //modal row border
 .rowborder {
+=======
+.breakAll {
+  word-break: break-all;
+}
+
+.my-table1{
+   
+     border: 1px solid #080e0f;
+     //border-collapse: collapse;
+     border-top: 1px solid black;
+    border-collapse: collapse;
+    border-top-left-radius: 50%;
+    border-top-left-radius: 50%;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+
+// .tablebr, td, th {
+//     border: 1px solid black;
+//     border-collapse: collapse;
+//   }
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+  }
+  
+  /* style glyph */
+  .inner-addon .fa {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+  
+  /* align glyph */
+//   .left-addon .glyphicon  { left:  0px;}
+  .right-addon .fa { right: 0px;}
+  
+  /* add padding  */
+//   .left-addon input  { padding-left:  30px; }
+  .right-addon input { padding-right: 30px; }
+
+//modal color change
+.modal-primary .modal-header{
+    background-color: #861F41;
+    color:#fff;
+
+}
+.modal-primary .modal-content {
+    border-color: #861F41;
+}
+//other document upload imagespart
+
+.fileContainer .uploadPictureContainer img.uploadPicture{
+    height:250px !important;
+}
+//image
+.fileContainer p{
+    display:none;
+}
+//modal row border
+.rowborder{
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     border: 4px solid #861F41 !important;
 
 }
 
+<<<<<<< HEAD
 .colrightborder {
     border-right: 4px solid #861F41 !important;
 }
 
+=======
+.rowborderbarcode{
+    border: 1px solid black !important;
+
+}
+.colrightborder{
+    border-right:4px solid #861F41 !important;
+}
+.colrightborderbarcode{
+    border-right:1px solid black !important;
+}
+.colrightborderbarcodeheader{
+    border-right:1px solid black !important;
+    height:"48px"
+  
+}
+.colbottomborder{
+    border-bottom:1px solid black !important;
+}
+
+.rowborderchecklist{
+    border: 1px solid #861F41 !important;
+
+}
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
 //increasing the modal width in cuatomer part no details
 // .increasedmodalwidth{
 //     width:950px !important;
 
 // }
+<<<<<<< HEAD
 .fontweight {
     font-weight: bold;
 }
@@ -252,6 +560,80 @@ tr.borderfortr td {
     //     width: 210mm;
     //     height: 297mm;        
     // }
+=======
+.fontweight{
+    font-weight: bold;
+}
+.textaligncenter{
+    text-align: center;
+}
+//borders for td
+tr.borderfortr td{
+    border:1px solid blue;
+    border-top:1px solid blue;
+    border-radius: 20px;
+    border-collapse:collapse;
+}
+
+
+
+.print-page-barcode {
+    width: 210mm;
+    min-height: 297mm;
+    // padding: 20mm;
+    // margin: 10mm auto;
+    // border: 1px #D3D3D3 solid;
+    // border-radius: 5px;
+    // background: white;
+    // box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.barcode-font-size{
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+.inner-addonn {
+    position: relative;
+  }
+  
+  /* style glyph */
+  .inner-addonn .fa {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+  }
+  
+  /* align glyph */
+//   .left-addon .glyphicon  { left:  0px;}
+  .right-addonn .fa { right: 0px;}
+  
+  /* add padding  */
+//   .left-addon input  { padding-left:  30px; }
+  .right-addonn input { padding-right: 0px; }
+
+
+@media print {
+   
+    .bggreenprint{
+        visibility: visible;
+    //  -webkit-print-color-adjust: exact !important;
+     background-color:hsl(120, 100%, 25%);
+     color: white;
+
+    }
+    #hide123quota{
+        display: none;
+    }
+    .tablefontsize{ 
+        font-size: 10px; 
+       }
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
     .print-page {
         margin: 0;
         border: initial;
@@ -262,6 +644,7 @@ tr.borderfortr td {
         background: initial;
         page-break-after: always;
     }
+<<<<<<< HEAD
 }
 
 
@@ -325,3 +708,45 @@ tr.borderfortr td {
     display: block;
     margin-top: 150px;
 }
+=======
+    .print-page-barcode {
+        // margin: 0; 
+     page-break-after: always;
+        
+    // background-color:green;
+    }
+}
+
+
+
+// to make the loading image come in center
+.loadingimage{
+margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 150px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px)  {
+    .widthofinput {
+      margin-left:100px;
+    }
+  }
+
+
+
+  @media only screen and (min-width: 712px) and (max-width: 1138px)  {
+    .widthofinputinmodal {
+      width:500px;
+    }
+  }
+
+  @media only screen and (min-width: 360px) and (max-width: 576px)  {
+    .fontsize {
+        font-size:10px;
+    }
+    .ml40{
+       margin-left: -40px;
+    }
+  }
+>>>>>>> 3e4f60b80bfb93a13fe631da21fb02530bdc8689
