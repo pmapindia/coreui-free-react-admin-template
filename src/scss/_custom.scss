@@ -1,1 +1,327 @@
 // Here you can add other styles
+.blue {
+    // color:#00BFFF;
+    color: #38ACEC;
+
+}
+
+.bgcolor {
+    background-color: #3b3f4b;
+}
+
+.bgcolor1 {
+    background-color: #626264;
+}
+
+.bggreen {
+    background-color: #2eb85c;
+}
+
+.bgred {
+    background-color: red;
+}
+
+.bgyellow {
+    background-color: #f8a611;
+}
+
+.bgcyan1 {
+    background-color: #b1524fec;
+}
+
+.red {
+    color: red;
+}
+
+.inputborderradius {
+    border-radius: 15px;
+}
+
+//custom image upload button
+.div {
+    padding: 5px 10px;
+    background: #3b3f4b;
+    border: 1px solid #3b3f4b;
+    position: relative;
+    color: #fff;
+    border-radius: 2px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    // margin-top: 20px;
+    width: 100%;
+
+}
+
+.hide-file {
+    position: absolute;
+    z-index: 1000;
+    opacity: 0;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    height: 100%;
+    font-size: 24px;
+    width: 100%;
+}
+
+.cyan {
+    // color: cyan;
+    color: #861F41;
+
+}
+
+.cyanfont {
+    // color: cyan;
+    color: #861F41;
+
+}
+
+.bgcyan {
+    background-color: #861F41;
+}
+
+.whitewithbgcolor {
+    color: white;
+    background-color: #861F41;
+
+}
+
+.whitewithbggreencolor {
+    color: white;
+    background-color: #90ee90;
+
+}
+
+.white {
+    color: white;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.my-table {
+    border: 1px solid #3b3f4b !important;
+    //border-top: 1px solid #861F41;
+    // border-collapse: collapse;
+}
+
+.my-table-border {
+    display: table;
+    width: 100%;
+    margin-bottom: 1rem;
+    border: white;
+    border-top: 1px solid #ffffff;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-collapse: separate;
+    border-top-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.my-table1 {
+
+    border: 1px solid #3b3f4b;
+    // border-collapse: collapse;
+    border-top: 1px solid #3b3f4b;
+    border-collapse: collapse;
+    border-top-left-radius: 50%;
+    border-top-left-radius: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style glyph */
+.inner-addon .fa {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align glyph */
+//   .left-addon .glyphicon  { left:  0px;}
+.right-addon .fa {
+    right: 0px;
+}
+
+/* add padding  */
+//   .left-addon input  { padding-left:  30px; }
+.right-addon input {
+    padding-right: 30px;
+}
+
+//modal color change
+.modal-primary .modal-header {
+    background-color: #861F41;
+    color: #fff;
+
+}
+
+.modal-primary .modal-content {
+    border-color: #861F41;
+}
+
+//other document upload imagespart
+
+.fileContainer .uploadPictureContainer img.uploadPicture {
+    height: 250px !important;
+}
+
+//image
+.fileContainer p {
+    display: none;
+}
+
+//modal row border
+.rowborder {
+    border: 4px solid #861F41 !important;
+
+}
+
+.colrightborder {
+    border-right: 4px solid #861F41 !important;
+}
+
+//increasing the modal width in cuatomer part no details
+// .increasedmodalwidth{
+//     width:950px !important;
+
+// }
+.fontweight {
+    font-weight: bold;
+}
+
+.textaligncenter {
+    text-align: center;
+}
+
+//borders for td
+tr.borderfortr td {
+    border: 1px solid blue;
+    border-top: 1px solid blue;
+    border-radius: 20px;
+    border-collapse: collapse;
+}
+
+.print-page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 20mm;
+    margin: 10mm auto;
+    // border: 1px #D3D3D3 solid;
+    // border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.print-subpage {
+    // padding: 1cm;
+    // border: 1px red solid;
+    // border: 1px #8f9092 solid;
+
+    height: 257mm;
+    // outline: 2cm #FFEAEA solid;
+}
+
+@page {
+    size: A4;
+    margin: 0;
+}
+
+@media print {
+    @page {
+        size: landscape
+    }
+}
+
+@media print {
+
+    // html, body {
+    //     width: 210mm;
+    //     height: 297mm;        
+    // }
+    .print-page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}
+
+
+//landscape
+.print-page-landscape {
+    width: 297mm;
+    min-height: 210mm;
+    padding: 15mm;
+    margin: 10mm auto;
+    // border: 1px #D3D3D3 solid;
+    // border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.print-subpage-landscape {
+    // padding: 1cm;
+    // border: 1px red solid;
+    // border: 1px #8f9092 solid;
+
+    height: 170mm;
+    // outline: 2cm #FFEAEA solid;
+}
+
+//no use
+// @page {
+//     .print-page-landscape{
+//         size: A4 landscape;
+//     margin: 0;  
+//     }
+
+// }
+@media print {
+
+    // html, body {
+    //     width: 210mm;
+    //     height: 297mm;        
+    // }
+    .print-page-landscape {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+        // transform: rotate(270deg) translate(-276,0);
+        // transform-origin: 0 0;
+    }
+}
+
+// page[size="A4"][layout="landscape"]{
+//     width:297mm;
+//     height: 210mm;
+// }
+// to make the loading image come in center
+.loadingimage {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 150px;
+}

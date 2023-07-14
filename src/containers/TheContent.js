@@ -5,7 +5,9 @@ import {
   Switch
 } from 'react-router-dom'
 import { CContainer, CFade } from '@coreui/react'
-
+//HERE WE ARE DECLARING THE CHILDREN ROUTES EX.BSE/BREADCRUMS
+//FOR LARGE SET OF ROUTES INSTEAD OF WRITING ROUTES COMPONENT THOUSAND TIMES YOU CAN CREATE A SEPARATE OBJECT 
+//AND YOU CAN ITERATE THROUGH THE OBJECT
 // routes config
 import routes from '../routes'
   

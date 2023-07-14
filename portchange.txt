@@ -1,0 +1,28 @@
+PORT=3000
+CHOKIDAR_USEPOLLING=true
+BASE_URL=https://pmaptechnotech.com/alcoatsapi/
+REACT_APP_LIST_LIMIT=50
+REACT_APP_API=https://pmaptechnotech.com/alcoatsapi/api/
+@REM REACT_APP_PHOTOPATH=https://pmaptechnotech.com/alcoats/uploads/
+REACT_APP_PHOTOPATH=https://pmaptechnotech.com/alcoatsapi/Uploads/PartNumberDocuments/
+REACT_APP_DOCUMENTPATH=https://pmaptechnotech.com/alcoatsapi/Uploads/DocumentFiles/
+
+
+///sir port number and id
+
+PORT=1000
+CHOKIDAR_USEPOLLING=true
+REACT_APP_LIST_LIMIT=50
+REACT_APP_API=http://192.168.0.124:1000/api/
+REACT_APP_PHOTOPATH=http://192.168.0.124:1000/Uploads/PartNumberDocuments/
+REACT_APP_DOCUMENTPATH=http://192.168.0.124:1000/Uploads/DocumentFiles/
+
+
+
+
+
+
+
+
+
+
