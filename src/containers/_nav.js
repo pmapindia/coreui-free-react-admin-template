@@ -1,6 +1,6 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-
+import { Cookies } from 'react-cookie'
 const _nav =  [
   {
     _tag: 'CSidebarNavItem',
@@ -12,301 +12,635 @@ const _nav =  [
       text: 'NEW',
     }
   },
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Theme']
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Colors',
-    to: '/theme/colors',
-    icon: 'cil-drop',
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Typography',
-    to: '/theme/typography',
-    icon: 'cil-pencil',
-  },
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Components']
-  },
+  
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Base',
-    route: '/base',
+    name: 'Setup Process',
+    route: '/production',
     icon: 'cil-puzzle',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Breadcrumb',
-        to: '/base/breadcrumbs',
+        name: 'Add New Process',
+        to: '/production/add-new-process',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Cards',
-        to: '/base/cards',
+        name: 'Process List',
+        to: '/production/process-list',
       },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Carousel',
-        to: '/base/carousels',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Collapse',
-        to: '/base/collapses',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Forms',
-        to: '/base/forms',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Jumbotron',
-        to: '/base/jumbotrons',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'List group',
-        to: '/base/list-groups',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Navs',
-        to: '/base/navs',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Navbars',
-        to: '/base/navbars',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Pagination',
-        to: '/base/paginations',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Popovers',
-        to: '/base/popovers',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Progress',
-        to: '/base/progress-bar',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Switches',
-        to: '/base/switches',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Tables',
-        to: '/base/tables',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Tabs',
-        to: '/base/tabs',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Tooltips',
-        to: '/base/tooltips',
-      },
-    ],
-  },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Buttons',
-    route: '/buttons',
-    icon: 'cil-cursor',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Buttons',
-        to: '/buttons/buttons',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Brand buttons',
-        to: '/buttons/brand-buttons',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Buttons groups',
-        to: '/buttons/button-groups',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Dropdowns',
-        to: '/buttons/button-dropdowns',
-      }
-    ],
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Charts',
-    to: '/charts',
-    icon: 'cil-chart-pie'
-  },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Icons',
-    route: '/icons',
-    icon: 'cil-star',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Free',
-        to: '/icons/coreui-icons',
-        badge: {
-          color: 'success',
-          text: 'NEW',
-        },
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Flags',
-        to: '/icons/flags',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'CoreUI Brands',
-        to: '/icons/brands',
-      },
-    ],
-  },
-  {
-    _tag: 'CSidebarNavDropdown',
-    name: 'Notifications',
-    route: '/notifications',
-    icon: 'cil-bell',
-    _children: [
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Alerts',
-        to: '/notifications/alerts',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Badges',
-        to: '/notifications/badges',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Modal',
-        to: '/notifications/modals',
-      },
-      {
-        _tag: 'CSidebarNavItem',
-        name: 'Toaster',
-        to: '/notifications/toaster'
-      }
+      
     ]
   },
   {
-    _tag: 'CSidebarNavItem',
-    name: 'Widgets',
-    to: '/widgets',
-    icon: 'cil-calculator',
-    badge: {
-      color: 'info',
-      text: 'NEW',
-    },
-  },
-  {
-    _tag: 'CSidebarNavDivider'
-  },
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Extras'],
-  },
-  {
     _tag: 'CSidebarNavDropdown',
-    name: 'Pages',
-    route: '/pages',
-    icon: 'cil-star',
+    name: 'Setup Process Category',
+    route: '/production',
+    icon: 'cil-puzzle',
     _children: [
       {
         _tag: 'CSidebarNavItem',
-        name: 'Login',
-        to: '/login',
+        name: 'Process Category',
+        to: '/process-category',
+      },
+     
+      
+    ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Setup Testing Process',
+    route: '/production',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Testing Process',
+        to: '/add-new-testing-process',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Register',
-        to: '/register',
+        name: 'Testing Process List',
+        to: '/testing-process-list',
+      },
+     
+      
+    ]
+  },
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Setup Testing Process',
+  //   route: '/production',
+  //   icon: 'cil-puzzle',
+  //   _children: [
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Add New Testing Process',
+  //       to: '/add-new-testing-process',
+  //     },
+  //     {
+  //       _tag: 'CSidebarNavItem',
+  //       name: 'Testing Process List',
+  //       to: '/testing-process-list',
+  //     },
+     
+      
+  //   ]
+  // },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Setup Process Steps',
+    route: '/production',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Process Step',
+        to: '/add-new-process-step',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Error 404',
-        to: '/404',
+        name: 'Process Step List',
+        to: '/process-step-list',
+      },
+    
+
+      
+    ]
+  },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Setup Control Plan',
+    route: '/production',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Control Plan',
+        to: '/control-plan-list/add-new-control-plan',
       },
       {
         _tag: 'CSidebarNavItem',
-        name: 'Error 500',
-        to: '/500',
+        name: 'Control Plan List',
+        to: '/control-plan-list',
       },
-    ],
+    
+
+      
+    ]
+  },
+
+  
+
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Setup Paints Control Plan',
+    route: '/paint',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Paint Setup',
+        to: '/paint/paint-setup',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Paint Setup List',
+        to: '/paint/paint-setup-list',
+      },
+   ]
   },
   {
-    _tag: 'CSidebarNavItem',
-    name: 'Disabled',
-    icon: 'cil-ban',
-    badge: {
-      color: 'secondary',
-      text: 'NEW',
+    _tag: 'CSidebarNavDropdown',
+    name: 'Setup Process Flow',
+    route: '/production',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Process Flow',
+        to: '/process-flow-list/add-new-process-flow',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Process Flow List',
+        to: '/process-flow-list',
+      },
+      
+    
+
+      
+    ]
+  },
+//   {
+//     _tag: 'CSidebarNavDropdown',
+//     name: 'Production',
+//     route: '/production',
+//     icon: 'cil-puzzle',
+//     _children: [
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Process List',
+//         to: '/production/process-list',
+//       },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Add New Process',
+//         to: '/production/add-new-process',
+//       },
+
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Process Category',
+//         to: '/process-category',
+//       },
+
+
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Process Step List',
+//         to: '/process-step-list',
+//       },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Add New Process Step',
+//         to: '/add-new-process-step',
+//       },
+
+
+
+
+
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Testing Process List',
+//         to: '/testing-process-list',
+//       },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Add New Testing Process',
+//         to: '/add-new-testing-process',
+//       },
+// {
+//   _tag: 'CSidebarNavItem',
+//   name: 'Process Flow List',
+//   to: '/process-flow-list',
+// },
+// {
+//   _tag: 'CSidebarNavItem',
+//   name: 'Add New Process Flow',
+//   to: '/process-flow-list/add-new-process-flow',
+// },
+// {
+//   _tag: 'CSidebarNavItem',
+//   name: 'Create Route Card',
+//   to: '/create-route-card',
+// },
+
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Add New Control Plan',
+//         to: '/control-plan-list/add-new-control-plan',
+//       },
+//       {
+//         _tag: 'CSidebarNavItem',
+//         name: 'Control Plan List',
+//         to: '/control-plan-list',
+//       },
+
+//     ]
+//   },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Customers',
+    route: '/customers',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Customer',
+        to: '/customers/add-new-customer',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Customer List',
+        to: '/customers/customer-list',
+      },
+    ]},
+    {
+      _tag: 'CSidebarNavDropdown',
+      name: 'Quotation',
+      route: '/customers',
+      icon: 'cil-puzzle',
+      _children: [
+        {
+          _tag: 'CSidebarNavItem',
+          name: 'Add New Quotation',
+          to: '/customers/add-new-quotation',
+        },
+         {
+        _tag: 'CSidebarNavItem',
+        name: 'Quotation List',
+        to: '/customers/quotation-list',
+      },
+     
+    ]
+  },
+    {
+      _tag: 'CSidebarNavDropdown',
+      name: 'Setup Part Number',
+      route: '/customers',
+      icon: 'cil-puzzle',
+      _children: [
+        {
+          _tag: 'CSidebarNavItem',
+          name: 'Add Customer Part Number',
+          to: '/add-new-customer-part-number',
+        },
+      
+{
+          _tag: 'CSidebarNavItem',
+          name: 'Customer Part Number List',
+          to: '/customer-part-number-list',
+        },
+       
+    ]
+  },
+
+//Hani
+{
+  _tag: 'CSidebarNavDropdown',
+  name: 'Calibration',
+  route: '/calibration',
+ icon: 'cil-puzzle',
+ _children: [
+   {
+     _tag: 'CSidebarNavItem',
+     name: 'Create New Calibration',
+     to: '/calibration/create-new-calibration',
+   },
+   {
+     _tag:'CSidebarNavItem',
+     name:'Calibration List',
+     to:'/calibration/calibration-list',
+   },
+   {
+     _tag:'CSidebarNavItem',
+     name:'Calibration Instrument Details',
+     to:'/calibration/calibration-instrument-details',
+   },
+  
+   // {
+   //   _tag:'CSidebarNavItem',
+   //   name:'Upcoming Calibration Due List',
+   //   to:'/calibration/upcoming-calibration-due-list',
+   // },
+   
+ ]
+},
+{
+ _tag: 'CSidebarNavDropdown',
+ name: 'Machine',
+ route: '/machine',
+ icon: 'cil-puzzle',
+ _children: [
+   {
+     _tag: 'CSidebarNavItem',
+     name: 'Add New Machine',
+     to: '/machine/add-new-machine',
+   },
+   {
+     _tag: 'CSidebarNavItem',
+     name: 'Machine List',
+     to: '/machine/machine-list',
+   },
+  //  {
+  //    _tag: 'CSidebarNavItem',
+  //    name: 'Update Machine',
+  //    to: '/machine/update-machine',
+  //  },
+   
+ ]
+},
+
+{
+  _tag: 'CSidebarNavDropdown',
+  name: 'Instrument',
+  route: '/instrument',
+  icon: 'cil-puzzle',
+  _children: [
+  
+    {
+      _tag: 'CSidebarNavItem',
+      name: 'Instrument Add',
+      to: '/instrument/instrument-add',
     },
-    addLinkClass: 'c-disabled',
-    'disabled': true
-  },
-  {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2'
-  },
-  {
-    _tag: 'CSidebarNavTitle',
-    _children: ['Labels']
-  },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'Label danger',
-    to: '',
-    icon: {
-      name: 'cil-star',
-      className: 'text-danger'
+    {
+      _tag: 'CSidebarNavItem',
+      name: 'Instrument List',
+      to: '/instrument/instrument-list',
     },
-    label: true
+    
+  ]
+ },
+
+
+
+
+
+
+
+{
+_tag: 'CSidebarNavDropdown',
+name: 'Item',
+route: '/item',
+icon: 'cil-puzzle',
+_children: [
+{
+ _tag: 'CSidebarNavItem',
+ name: 'Create New Item',
+ to: '/item/create-new-item',
+},
+{
+_tag: 'CSidebarNavItem',
+name: 'Item List',
+to: '/item/item-list',
+},
+// {
+// _tag: 'CSidebarNavItem',
+// name: 'Update Item',
+// to: '/item/update-item',
+// },
+{
+  _tag: 'CSidebarNavItem',
+  name: 'Tax Group',
+  to: '/tax/tax-group',
+},
+{
+  _tag:'CSidebarNavItem',
+  name:'Taxes',
+  to:'/tax/tax-name',
+},
+
+
+
+
+],
+},
+
+
+
+
+
+
+
+
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Branches/Units',
+    route: '/branches',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Branch List',
+        to: '/branches/branch-list',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Branch',
+        to: '/branches/add-new-branch',
+      },
+    ]
+  },
+ 
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Suppliers',
+    route: '/suppliers',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Suppliers',
+        to: '/suppliers/add-new-suppliers',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Suppliers List',
+        to: '/suppliers/suppliers-list',
+      },
+     
+      
+    ]
+  },
+
+
+
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Stocks',
+  //   route: '/settings1',
+  //   icon: 'cil-puzzle',
+  //   _children: [
+     
+  //   ]
+  // },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Items',
+    route: '/items',
+      icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Categories',
+        to: '/items/categories',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Units Of Measurement',
+        to: '/items/units-of-measurement',
+      }, 
+
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'CheckList Parameter',
+        to: '/checklist/checklist-parameter',
+      }, {
+        _tag: 'CSidebarNavItem',
+        name: 'Contract CheckList',
+        to: '/checklist/contract-checklist',
+      },
+      
+    ]
+  },
+  // {
+  //   _tag: 'CSidebarNavDropdown',
+  //   name: 'Calibration',
+  //   route: '/settings1',
+  //   icon: 'cil-puzzle',
+  //   _children: [
+     
+      
+  //   ]
+  // },
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Settings',
+    route: '/settings',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'General Settings',
+        to: '/settings/general-settings',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Basic Settings',
+        to: '/basic-settings',
+      },
+      // {
+      //   _tag: 'CSidebarNavItem',
+      //   name: 'All Users',
+      //   to: '/settings/all-users',
+      // },
+      
+    ]
+  },
+  
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Switch Dashboard',
+    route: '/switchdashboard/switch-dashboard',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Switch Dashboard',
+        to: '/switchdashboard/switch-dashboard',
+      },
+     
+      
+    ]
   },
   {
-    _tag: 'CSidebarNavItem',
-    name: 'Label info',
-    to: '',
-    icon: {
-      name: 'cil-star',
-      className: 'text-info'
-    },
-    label: true
+    _tag: 'CSidebarNavDropdown',
+    name: 'Route Card',
+    route: '/reports/route-card-list',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Route Card List',
+        to: '/reports/route-card-list',
+      },
+
+     
+      
+    ]
+  },
+  
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Create Purchase Indent',
+    route: '',
+    icon: 'cil-puzzle',
+    _children: [
+   ]
   },
   {
-    _tag: 'CSidebarNavItem',
-    name: 'Label warning',
-    to: '',
-    icon: {
-      name: 'cil-star',
-      className: 'text-warning'
-    },
-    label: true
+    _tag: 'CSidebarNavDropdown',
+    name: 'Contract Review CheckList',
+    route: '',
+    icon: 'cil-puzzle',
+    _children: [
+   ]
   },
   {
-    _tag: 'CSidebarNavDivider',
-    className: 'm-2'
-  }
+    _tag: 'CSidebarNavDropdown',
+    name: 'Reports',
+    route: '',
+    icon: 'cil-puzzle',
+    _children: [
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'COC List',
+        // to: '/basic-settings',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'FAI List',
+        // to: '/basic-settings',
+      },
+   ]
+  },
+  
+  {
+    _tag: 'CSidebarNavDropdown',
+    name: 'Training List as Faculty',
+    route: '',
+    icon: 'cil-puzzle',
+    _children: [
+   ]
+  },
+
+  // {
+  //   _tag:'CSidebarNavDropdown',
+  //   name:'Login',
+  //   route:'/hanilogin',
+  //  icon:'cil-puzzle',
+  //  _children:[
+  //    {
+  //      _tag:'CSidebarNavItem',
+  //      name:'Hani Login',
+  //      to:'/hanilogin/hani-login'
+  //    }
+  //  ]
+  // },
+
 ]
+
 
 export default _nav

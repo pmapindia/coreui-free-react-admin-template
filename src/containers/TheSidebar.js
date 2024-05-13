@@ -1,5 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import logos from '../assets/logo.png';
 import {
   CCreateElement,
   CSidebar,
@@ -30,6 +31,7 @@ const TheSidebar = () => {
         <CIcon
           className="c-sidebar-brand-full"
           name="logo-negative"
+          src={logos}
           height={35}
         />
         <CIcon
