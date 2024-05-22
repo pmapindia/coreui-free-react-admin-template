@@ -71,11 +71,16 @@ const _nav = [
         name: 'Members List',
         to: '/memberlist',
       },
-      // {
-      //   _tag: 'CSidebarNavItem',
-      //   name: 'Member Import Excel',
-      //   to: '/memberimportexcel',
-      // },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Member Prim Goal Workout',
+        to: '/mempriworkout',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Member Sec Goal Workout',
+        to: '/memsecworkout',
+      },
     ]
   },
 
@@ -261,7 +266,7 @@ const _nav = [
   },
   {
     _tag: 'CSidebarNavDropdown',
-    name: 'Workout Setup',
+    name: 'Workout & Dietchart Setup',
     icon: 'cil-map',
     _children: [
       {
@@ -284,8 +289,19 @@ const _nav = [
         name: 'Secondary Goal Workout Mapping',
         to: '/sec-goal-workout-map',
       },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Add New Dietchart Setup',
+        to: '/dietchartsetup',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Dietchart Setup List',
+        to: '/dietchartsetup-list',
+      },
     ]
   },
+
   {
     _tag: 'CSidebarNavDropdown',
     name: 'Settings',
@@ -367,6 +383,16 @@ const _nav = [
         _tag: 'CSidebarNavItem',
         name: 'Terms And Conditions',
         to: '/terms-and-conditions',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Transfer Setup List',
+        to: '/trans-setup-list',
+      },
+      {
+        _tag: 'CSidebarNavItem',
+        name: 'Testimonials Add',
+        to: '/testim-setup',
       },
       // {
       //   _tag: 'CSidebarNavItem',

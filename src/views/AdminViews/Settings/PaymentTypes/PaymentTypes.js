@@ -135,7 +135,7 @@ const PaymentType = (props) => {
 
                                                 <CCol xs="12" sm="3" md="3" lg="3" className="mt-2">
                                                     <div className="bgcolor mt-3" style={{ borderRadius: "5px" }}>
-                                                        <CButton type="submit" style={{ width: "100%", color: "white", fontWeight: "50%", fontSize: "15px" }} >Save</CButton>
+                                                        <CButton type="submit" style={{ width: "100%", color: "white", fontWeight: "50%", fontSize: "15px" }} disabled={disablebutton}>Save</CButton>
                                                         <img id="img_gif_loading_btn" src={process.env.PUBLIC_URL + '/avatars/gif_loading.gif'} style={{ width: "20px", marginTop: "-26px", float: "right", marginRight: "10px", display: "none" }} />
                                                     </div>
                                                     {warnings.warning && <p style={{ color: "red" }}>{warnings.warning}</p>}
@@ -156,7 +156,7 @@ const PaymentType = (props) => {
                                             <table className="table">
                                                 <thead>
                                                     <tr>
-                                                        <th>SL No</th>
+                                                        <th>#</th>
                                                         <th>Payment Type Name</th>
                                                         <th>Delete</th>
                                                     </tr>

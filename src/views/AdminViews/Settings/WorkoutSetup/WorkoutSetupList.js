@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import DeleteModal from '../../Modals/DeleteModal';
 import * as AppConstants from 'src/views/AdminViews/AppConstants';
 import Notification from '../../Modals/NotificationAltertModal';
+
 const WorkoutSetupList = (props) => {
 
     const [cookies, setCookies, removeCookie] = useCookies(['admin']);

@@ -1414,12 +1414,12 @@ const AdminDashboard = () => {
     // console.log(currMonth + 1);
     // console.log(currYear);
     DashboardAdmin();
-    CronBills();
+    //CronBills();
     PostpaidBills();
     EnquiriesList();
     MemberRenewalList();
     BalancePaymentLists();
-    CronGetAttendanceData();
+    //CronGetAttendanceData();
   }, []);
 
 

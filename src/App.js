@@ -167,6 +167,20 @@ const PrimaryGoalWorkoutMapping = React.lazy(() => import('./views/AdminViews/Se
 
 const SecondaryGoalWorkoutMapping = React.lazy(() => import('./views/AdminViews/Settings/GoalWorkoutMappingSetup/SecondaryGoalWorkoutMapping'));
 
+const DietChartSetupAdd = React.lazy(() => import('./views/AdminViews/Settings/DietChartSetup/DietChartSetupAdd'));
+const DietChartSetupList = React.lazy(() => import('./views/AdminViews/Settings/DietChartSetup/DietChartSetupList'));
+
+const MemPriGoalWorkOut = React.lazy(() => import('./views/AdminViews/Member/MemberGoalsWorkout/MemPriGoalWorkout'));
+const MemSecGoalWorkOut = React.lazy(() => import('./views/AdminViews/Member/MemberGoalsWorkout/MemSecGoalWorkout'));
+
+const TransferSetupList = React.lazy(() => import('./views/AdminViews/Settings/TransferSetup/TransferSetupList'));
+const TransferSetup = React.lazy(() => import('./views/AdminViews/Settings/TransferSetup/TransferSetupAdd'));
+
+const TestimonialsAdd = React.lazy(() => import('./views/AdminViews/Settings/Testimonials/TestimonialsAdd'));
+const TestimonialsList = React.lazy(() => import('./views/AdminViews/Settings/Testimonials/TestimonialsList'));
+
+
+
 
 const AppRoute = ({ component: Component, layout: Layout, ...rest }) => {
   return (
@@ -327,6 +341,17 @@ const App = () => {
 
           <AppRoute exact path='/sec-goal-workout-map' name='SecondaryGoalWorkoutMapping' layout={TheLayoutAdmin} component={SecondaryGoalWorkoutMapping} />
 
+          <AppRoute exact path='/dietchartsetup' name='DietChartSetupAdd' layout={TheLayoutAdmin} component={DietChartSetupAdd} />
+          <AppRoute exact path='/dietchartsetup-list' name='DietChartSetupList' layout={TheLayoutAdmin} component={DietChartSetupList} />
+
+          <AppRoute exact path='/mempriworkout' name='MemPriGoalWorkOut' layout={TheLayoutAdmin} component={MemPriGoalWorkOut} />
+          <AppRoute exact path='/memsecworkout' name='MemSecGoalWorkOut' layout={TheLayoutAdmin} component={MemSecGoalWorkOut} />
+
+          <AppRoute exact path='/trans-setup' name='TransferSetupList' layout={TheLayoutAdmin} component={TransferSetup} />
+          <AppRoute exact path='/trans-setup-list' name='TransferSetupList' layout={TheLayoutAdmin} component={TransferSetupList} />
+
+          <AppRoute exact path='/testim-setup' name='TestimonialsAdd' layout={TheLayoutAdmin} component={TestimonialsAdd} />
+          <AppRoute exact path='/testim-list' name='TestimonialsList' layout={TheLayoutAdmin} component={TestimonialsList} />
           {/* PmapG */}
           <Route exact path="/adminlogin" name="Login Page" render={props => <AdminLogin {...props} />} />
           <Route exact path="/" name="Login Page" render={props => <AdminLogin {...props} />} />

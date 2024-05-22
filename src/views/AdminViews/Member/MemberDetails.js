@@ -26,6 +26,9 @@ import CancelSale from '../Modals/CancelSales';
 import BodyMeasurementModal from './MemberUpdateModals/BodyMeasurementModal';
 import MemberBodyMeasurementModal from './MemberUpdateModals/MemberBodyMeasureUpdateModal';
 import AddNewPackegeModal from './Modals/AddNewPackegeModal';
+import MemPriGoalWorkOutListModal from './Modals/MemPriGoalWorkOutListModal';
+import MemSecGoalWorkOutListModal from './Modals/MemSecGoalWorkOutListModal';
+import DietChartForMember from './Modals/DietChartForMember';
 
 const MemberDetails = () => {
     const location = useLocation();
@@ -182,8 +185,12 @@ const MemberDetails = () => {
                         "created_user_name": response.data.member_details.created_user_name,
                         "member_updated_at": response.data.member_details.member_updated_at,
                         "member_updated_by": response.data.member_details.member_updated_by,
-                        "updated_user_name": response.data.member_details.updated_user_name
-                    })
+                        "updated_user_name": response.data.member_details.updated_user_name,
+                        "member_primary_goal_id": response.data.member_details.member_primary_goal_id,
+                        "member_secondary_goal_id": response.data.member_details.member_secondary_goal_id
+                    });
+
+                    MemberWorkoutCountsOfWeeks(response.data.member_details.member_primary_goal_id, response.data.member_details.member_secondary_goal_id);
                 }
                 if (response.data.member_postpaid_details !== null) {
                     if (response.data.member_postpaid_details.postpaid_start_date !== null) {
@@ -400,6 +407,77 @@ const MemberDetails = () => {
                     setBodyMeasurement([]);
                 }
 
+            }
+        }).catch(
+            error => {
+                console.log(error);
+                alert(error.message);
+            })
+    }
+
+    const [WorkoutCountsOfPG, setWorkoutCountsOfPG] = useState([]);
+    const [WorkoutCountsOfSG, setWorkoutCountsOfSG] = useState([])
+    const MemberWorkoutCountsOfWeeks = async (primary_goal_id, secondary_goal_id) => {
+        var list = {};
+        list["member_id"] = memid;
+        list["primary_goal_id"] = primary_goal_id;
+        list["secondary_goal_id"] = secondary_goal_id;
+        await axios.post(process.env.REACT_APP_API + "MemberWorkoutCountsOfWeeks", list, config).then(response => {
+            console.log(response);
+            if (response.data.is_success) {
+                if (response.data.primary_goal_workout_list !== null) {
+                    // for (let i = 0; i < response.data.primary_goal_workout_list.length; i++) {
+                    //     if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "SUN") {
+                    //         setWorkoutCountsOfPG({ "workout_count_sun": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "MON") {
+                    //         setWorkoutCountsOfPG({ "workout_count_mon": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "TUE") {
+                    //         setWorkoutCountsOfPG({ "workout_count_tue": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "WED") {
+                    //         setWorkoutCountsOfPG({ "workout_count_wed": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "THU") {
+                    //         setWorkoutCountsOfPG({ "workout_count_thu": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "FRI") {
+                    //         setWorkoutCountsOfPG({ "workout_count_fri": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else if (response.data.primary_goal_workout_list[i].mem_wc_map_week_name === "SAT") {
+                    //         setWorkoutCountsOfPG({ "workout_count_sat": response.data.primary_goal_workout_list[i].workout_count })
+                    //     }
+                    //     else {
+                    //         setWorkoutCountsOfPG({
+                    //             "workout_count_sat": 0,
+                    //             "workout_count_mon": 0,
+                    //             "workout_count_tue": 0,
+                    //             "workout_count_wed": 0,
+                    //             "workout_count_thu": 0,
+                    //             "workout_count_fri": 0,
+                    //             "workout_count_sat": 0
+                    //         });
+                    //     }
+                    // }
+                    setWorkoutCountsOfPG(response.data.primary_goal_workout_list);
+                }
+
+                if (response.data.secondary_goal_workout_list !== null) {
+
+                    setWorkoutCountsOfSG(response.data.secondary_goal_workout_list);
+                }
+                else {
+                    // setWorkoutCountsOfPG({
+                    //     "workout_count_sat": 0,
+                    //     "workout_count_mon": 0,
+                    //     "workout_count_tue": 0,
+                    //     "workout_count_wed": 0,
+                    //     "workout_count_thu": 0,
+                    //     "workout_count_fri": 0,
+                    //     "workout_count_sat": 0
+                    // });
+                }
             }
         }).catch(
             error => {
@@ -695,10 +773,14 @@ const MemberDetails = () => {
                                             {/* </CCardHeader> */}
                                             <CCardBody>
                                                 <CRow>
-                                                    <CCol xs="12" sm="10" md="10" lg="10">
+                                                    <CCol xs="12" sm="9" md="9" lg="9">
                                                         <h5 style={{ padding: "0px", margin: "0px" }}>Goals</h5>
                                                     </CCol>
+                                                    {/* <CCol xs="12" sm="2" md="2" lg="2"></CCol> */}
                                                     <CCol xs="12" sm="2" md="2" lg="2">
+                                                        <DietChartForMember mem_id={MemberDetails.member_id}/>
+                                                    </CCol>
+                                                    <CCol xs="12" sm="1" md="1" lg="1">
                                                         <span style={{ float: "right", padding: "0px", margin: "0px" }}>
                                                             {/* <i class="fa fa-pencil" aria-hidden="true"></i> */}
                                                             <MemGoalsUpdateModal
@@ -712,17 +794,105 @@ const MemberDetails = () => {
                                                 <hr className="bgcolor" style={{ height: "1px" }} />
 
                                                 <CRow>
-                                                    <CCol xs="12" sm="4" md="4" lg="4">
+                                                    <CCol xs="12" sm="6" md="6" lg="6">
                                                         <h6 style={{ color: "grey" }}>Primary Goal</h6>
                                                         <h6 style={{ color: "black", }}>
                                                             {MemberDetails.primary_goal_name}
                                                         </h6>
+                                                        <CRow>
+                                                            {/* <CCol> */}
+                                                            {WorkoutCountsOfPG.map((WorkoutCountsOfPG, index) => (
+                                                                <MemPriGoalWorkOutListModal
+                                                                    mem_id={MemberDetails.member_id}
+                                                                    pg_id={MemberDetails.member_primary_goal_id}
+                                                                    workout_count={WorkoutCountsOfPG.workout_count}
+                                                                    week_name={WorkoutCountsOfPG.mem_wc_map_week_name}
+                                                                />
+                                                                // <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", borderRadius: "10px", textAlign: "center", marginLeft: "3px", }}>
+                                                                //     {/* <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>{WorkoutCountsOfPG.mem_wc_map_week_name}</div> */}
+                                                                //     <MemPriGoalWorkOutListModal week_name={WorkoutCountsOfPG.mem_wc_map_week_name} />
+                                                                //     {WorkoutCountsOfPG.workout_count}
+                                                                // </div>
+                                                            ))}
+
+                                                            {/* <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>MON</div>
+                                                                {WorkoutCountsOfPG.workout_count_mon}
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>TUE</div>
+                                                                {WorkoutCountsOfPG.workout_count_tue}
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>WED</div>
+                                                                {WorkoutCountsOfPG.workout_count_wed}
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>THU</div>
+                                                                {WorkoutCountsOfPG.workout_count_thu}
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>FRI</div>
+                                                                {WorkoutCountsOfPG.workout_count_fri}
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>SAT</div>
+                                                                {WorkoutCountsOfPG.workout_count_sat}
+                                                            </div> */}
+                                                            {/* </CCol> */}
+                                                        </CRow>
                                                     </CCol>
-                                                    <CCol xs="12" sm="4" md="4" lg="4">
+                                                    <CCol xs="12" sm="6" md="6" lg="6">
                                                         <h6 style={{ color: "grey" }}>Secondary Goal</h6>
                                                         <h6 style={{ color: "black", }}>
                                                             {MemberDetails.secondary_goal_name}
                                                         </h6>
+                                                        <CRow>
+                                                            {/* <CCol> */}
+                                                            {WorkoutCountsOfSG.map((WorkoutCountsOfSG, index) => (
+                                                                // <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", borderRadius: "10px", textAlign: "center", marginLeft: "3px", }}>
+                                                                //     <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>{WorkoutCountsOfSG.mem_wc_map_week_name}</div>
+                                                                //     {WorkoutCountsOfSG.workout_count}
+                                                                // </div>
+                                                                <MemSecGoalWorkOutListModal
+                                                                    mem_id={MemberDetails.member_id}
+                                                                    sg_id={MemberDetails.member_secondary_goal_id}
+                                                                    workout_count={WorkoutCountsOfSG.workout_count}
+                                                                    week_name={WorkoutCountsOfSG.mem_wc_map_week_name}
+                                                                />
+                                                            ))}
+
+                                                            {/* <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>SUN</div>
+                                                                10
+                                                            </div>
+
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>MON</div>
+                                                                10
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>TUE</div>
+                                                                10
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>WED</div>
+                                                                10
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>THU</div>
+                                                                10
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>FRI</div>
+                                                                10
+                                                            </div>
+                                                            <div style={{ height: "45px", width: "40px", backgroundColor: "#EEEBF4", marginLeft: "3px", borderRadius: "10px", textAlign: "center" }}>
+                                                                <div style={{ height: "15px", width: "25px", backgroundColor: "#3D1F9B", borderRadius: "3px", fontSize: "10px", color: "white", textAlign: "center", marginLeft: "8px", marginTop: "8px" }}>SAT</div>
+                                                                10
+                                                            </div> */}
+                                                            {/* </CCol> */}
+                                                        </CRow>
                                                     </CCol>
                                                 </CRow>
                                             </CCardBody>
@@ -915,7 +1085,7 @@ const MemberDetails = () => {
                                     </CCol>
                                 </CRow>
 
-                                {Pre ?
+                                {/* {Pre ?
                                     <CRow>
                                         {MemberDetails.product_type === "PACKAGE" || MemberDetails.product_type === "PROGRAM" ?
                                             <CCol xs="12" sm="12" md="12" lg="12">
@@ -927,7 +1097,7 @@ const MemberDetails = () => {
                                                             </CCol>
                                                             <CCol xs="12" sm="2" md="2" lg="2">
                                                                 <span style={{ float: "right", padding: "0px", margin: "0px" }}>
-                                                                    {/* <i class="fa fa-pencil" aria-hidden="true"></i> */}
+                                                                    
                                                                     <MembershipRenewalModal
                                                                         show={show}
                                                                         changeDependencyparent={updatemodalvalue}
@@ -937,7 +1107,7 @@ const MemberDetails = () => {
                                                             </CCol>
                                                             <CCol xs="12" sm="1" md="1" lg="1">
                                                                 <span style={{ float: "right", padding: "0px", margin: "0px" }}>
-                                                                    {/* <i class="fa fa-pencil" aria-hidden="true"></i> */}
+                                                                    
                                                                     <BatchDetailsUpdateModal
                                                                         show={show}
                                                                         changeDependencyparent={updatemodalvalue}
@@ -980,7 +1150,7 @@ const MemberDetails = () => {
                                                             </CCol>
                                                             <CCol xs="12" sm="1" md="1" lg="1">
                                                                 <span style={{ float: "right", padding: "0px", margin: "0px" }}>
-                                                                    {/* <i class="fa fa-pencil" aria-hidden="true"></i> */}
+                                                                    \
                                                                     <MembershipRenewalModal
                                                                         //show={show}
                                                                         //changeDependencyparent={updatemodalvalue}
@@ -990,7 +1160,7 @@ const MemberDetails = () => {
                                                             </CCol>
                                                             <CCol xs="12" sm="1" md="1" lg="1">
                                                                 <span style={{ float: "right", padding: "0px", margin: "0px" }}>
-                                                                    {/* <i class="fa fa-pencil" aria-hidden="true"></i> */}
+                                                                    
                                                                     <BatchDetailsUpdateModal
                                                                         show={show}
                                                                         changeDependencyparent={updatemodalvalue}
@@ -1027,7 +1197,7 @@ const MemberDetails = () => {
                                             </CCol>
                                         }
                                     </CRow>
-                                    : null}
+                                    : null} */}
 
 
                                 {Post ?
